@@ -42,6 +42,7 @@ const Channel = () => {
               </div>
             </div>
           </div>
+
           {UserInputMessage.length > 0 &&
             UserInputMessage.map((data) => {
               return (
@@ -61,7 +62,7 @@ const Channel = () => {
         <img src={Logo} alt="" />
         <span className="small-m">we run on surveysparrow</span>
       </div>
-      <hr />
+      <hr className="ChatHr" />
       <div className="ChatBoxMainChannelMessage">
         <div className="ChatBoxMainChannelMessageInput">
           <form onSubmit={(e) => UserInputHandler(e)}>
