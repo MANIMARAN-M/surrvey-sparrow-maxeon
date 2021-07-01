@@ -8,9 +8,7 @@ const Channel = () => {
   const UserInputHandler = (e) => {
     e.preventDefault();
     const { userInput } = e.target.elements;
-    console.log("userInput", userInput.value);
     const Message = { text: userInput.value };
-    console.log("Message", Message);
     setUserInputMessage([...UserInputMessage, Message]);
     e.target.reset();
   };
