@@ -1,0 +1,249 @@
+.ChatBoxSection {
+  position: fixed;
+  right: 50px;
+  bottom: 50px;
+  z-index: 97;
+  .ChatBoxIcon {
+    position: relative;
+    background-color: #fff;
+    height: 50px;
+    width: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50px 50px 5px 50px;
+    padding: 15px;
+    cursor: pointer;
+    img {
+      width: 100%;
+      object-fit: contain;
+    }
+    .ChatBoxCloseIcon {
+      display: none;
+    }
+    &#active {
+      img {
+        display: none;
+      }
+      .ChatBoxCloseIcon {
+        display: block;
+        svg {
+          animation: spin 0.5s linear;
+          transform-origin: center center;
+        }
+
+        @keyframes spin {
+          0% {
+            transform: rotate(0deg);
+          }
+          100% {
+            transform: rotate(360deg);
+          }
+        }
+      }
+    }
+  }
+
+  .ChatBoxMain {
+    position: fixed;
+    right: 50px;
+    bottom: 110px;
+    max-width: 380px;
+    border-radius: 5px;
+    background-color: #fff;
+    box-shadow: 0 3px 15px rgba($color: #000000, $alpha: 0.1);
+    display: none;
+    &#active {
+      display: block;
+    }
+    .ChatBoxMainTop {
+      .ChatBoxMainIntro {
+        background-color: #7f8ac5;
+        padding: 30px;
+        margin: 15px;
+        border-radius: 5px;
+        .p-m {
+          color: #fff;
+          font-weight: 400;
+        }
+        .small-m {
+          margin-top: 10px;
+          color: #fff;
+          font-size: 0.8rem;
+        }
+      }
+      .ChatBoxMainConversation {
+        width: 80%;
+        margin: 0 auto;
+        .h1-m {
+          font-size: 0.9rem;
+          margin-top: 20px;
+        }
+        .small-m {
+          font-size: 0.8rem;
+          margin-top: 8px;
+        }
+        .ChatBoxMainConversationBtn {
+          margin-top: 10px;
+          margin-bottom: 20px;
+          display: flex;
+          align-items: center;
+          max-width: 200px;
+          justify-content: space-around;
+          background-color: #13a884;
+          color: #fff;
+          border-radius: 20px;
+          padding: 10px;
+          cursor: pointer;
+          .small-m {
+            margin-top: 0px;
+          }
+        }
+      }
+    }
+  }
+}
+
+.ChatBoxMainChannel {
+  margin-top: 10px;
+  .ChatBoxMainChannelLogo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 10px;
+    padding-top: 5px;
+    img {
+      width: 18px;
+    }
+    .small-m {
+      margin-left: 5px;
+      font-size: 0.8rem;
+    }
+  }
+  .ChatBoxMainChannelMessage {
+    max-width: 300px;
+    margin: 15px auto;
+    padding: 0 15px;
+    form {
+      display: flex;
+      input {
+        flex-basis: 90%;
+        border: none;
+        &::placeholder {
+          letter-spacing: 1px;
+        }
+      }
+      button {
+        flex-basis: 10%;
+        background: transparent;
+        border: none;
+        svg {
+          color: #7f8ac5;
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 550px) {
+  .ChatBoxSection {
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+
+    .ChatBoxMain {
+      position: fixed;
+      right: 20px;
+      bottom: 80px;
+      max-width: 90%;
+      .ChatBoxMainTop {
+        .ChatBoxMainIntro {
+          padding: 15px;
+        }
+      }
+    }
+  }
+}
+
+.ChatBoxMainChannelReply {
+  margin: 0 15px;
+  min-height: 200px;
+  max-height: 200px;
+  overflow: hidden;
+  overflow-y: auto;
+  &::-webkit-scrollbar {
+    width: 5px;
+    padding-left: 5px;
+  }
+  &::-webkit-scrollbar-thumb {
+    background: #ecf1fb;
+    margin-left: 5px;
+  }
+  &::-webkit-scrollbar-thumb:hover {
+    background: #d7deec;
+  }
+  .ChatBoxMainChannelReplyRight {
+    margin-bottom: 20px;
+    .small-m {
+      position: relative;
+      background-color: #4c5aa1;
+      color: #fff;
+      max-width: 70%;
+      padding: 10px;
+      font-size: 12px;
+      border-radius: 5px 5px 0px 5px;
+      margin-left: auto;
+      font-weight: 300;
+      line-height: 1.5;
+      span {
+        position: absolute;
+        display: block;
+        bottom: -32px;
+        right: -24px;
+        color: #4c5aa1;
+        svg {
+          font-size: 3.5rem;
+        }
+      }
+    }
+  }
+  .ChatBoxMainChannelReplyLeft {
+    margin-bottom: 20px;
+    .d-flex {
+      display: flex;
+      align-items: center;
+      .ChatBoxMainChannelReplyLeftProfile {
+        height: 30px;
+        width: 30px;
+        background-color: #4c5aa1;
+        border-radius: 50%;
+      }
+      .small-m {
+        position: relative;
+        margin-left: 10px;
+        max-width: 70%;
+        background-color: #ecf1fb;
+        padding: 10px;
+        font-size: 12px;
+        border-radius: 5px 5px 5px 0px;
+        font-weight: 300;
+        line-height: 1.5;
+        span {
+          position: absolute;
+          display: block;
+          bottom: -32px;
+          left: -24px;
+          color: #ecf1fb;
+          svg {
+            font-size: 3.5rem;
+            transform: rotate(180deg);
+            path {
+              width: 5rem;
+              font-size: 5rem;
+            }
+          }
+        }
+      }
+    }
+  }
+}
